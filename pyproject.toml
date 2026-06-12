@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nhanes-autoanalyst"
+version = "0.1.0a0"
+description = "Recipe-based reproducible workflow scaffold for NHANES public-use data analysis."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+  {name = "NHANES AutoAnalyst contributors"}
+]
+keywords = ["NHANES", "epidemiology", "public-health", "reproducible-research", "survey-analysis"]
+dependencies = [
+  "pandas>=1.5",
+  "PyYAML>=6.0",
+  "requests>=2.28"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "ruff>=0.4"
+]
+ui = [
+  "streamlit>=1.30"
+]
+
+[project.scripts]
+nhanes-auto = "nhanes_autoanalyst.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
