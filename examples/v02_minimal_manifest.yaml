@@ -1,0 +1,25 @@
+# Minimal public-use NHANES build manifest for v0.2.
+# This example downloads official CDC/NCHS XPT files, merges within cycle by SEQN,
+# then appends cycles while adding survey_cycle.
+
+cycles:
+  - 2015-2016
+  - 2017-2018
+
+files:
+  - stem: DEMO
+    component: Demographics
+    columns:
+      - RIDAGEYR
+      - RIAGENDR
+      - RIDRETH3
+      - WTINT2YR
+      - WTMEC2YR
+      - SDMVPSU
+      - SDMVSTRA
+  - stem: BMX
+    component: Examination
+    columns:
+      - BMXBMI
+      - BMXWT
+      - BMXHT
